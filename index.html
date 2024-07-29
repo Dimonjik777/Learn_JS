@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculate circumference</title>
+</head>
+<body>
+
+  <h1>Calculate circumference</h1>
+  <label>Diametr</label>
+  <input id="diametr" type="text"><br><br>
+  <button id="submit">Calculate</button>
+
+  <h2 id="result"></h2>
+  
+  <script>
+
+    let diametr;
+    let circumference;
+
+    document.getElementById("submit").onclick = function() {
+
+      diametr = Number(document.getElementById("diametr").value);
+      circumference = Math.round(Math.PI * diametr, 2);
+
+      document.getElementById("result").textContent = `Circumference equals ${circumference} cm`;
+    }
+
+  </script>
+</body>
+</html>
