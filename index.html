@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checked property</title>
+
+  <style>
+    body{
+      font-size: 36px;
+      font-family: sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <input id="subBtn" type="checkbox">
+  <label for="subBtn">Subscribe</label><br><br>
+  
+  <input id="visaBtn" type="radio" name="card">
+  <label for="visaBtn">Visa</label> <br>
+  <input id="masterCardBtn" type="radio" name="card">
+  <label for="masterCardBtn">Mastercard</label><br>
+
+  <button id="submitBtn">Submit</button>
+
+  <h3 id="subText"></h3>
+  <h3 id="cardText"></h3>
+
+  <script>
+
+    let submitBtn = document.getElementById("submitBtn");
+    let subBtn = document.getElementById("subBtn");
+    let visaBtn = document.getElementById("visaBtn");
+    let masterCardBtn = document.getElementById("masterCardBtn");
+
+    let subText = document.getElementById("subText");
+    let cardText = document.getElementById("cardText");
+
+    submitBtn.onclick = function() {
+
+      if(subBtn.checked){
+        subText.textContent = "You are subscribed!"
+      }
+      else{
+        subText.textContent = "You are not subscribed!"
+      }
+
+      if(visaBtn.checked){
+        cardText.textContent = "You payment with Visa";
+      }
+
+      if(masterCardBtn.checked){
+        cardText.textContent = "You payment with Mastercard";
+      }
+
+      if(!visaBtn.checked && !masterCardBtn.checked){
+        cardText.textContent = "Choose one of the payment methods";
+      }
+    }
+
+  </script>
+</body>
+</html>
