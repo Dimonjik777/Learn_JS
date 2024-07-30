@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temperature conversion</title>
+
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+
+    .main {
+      width: 400px;
+      height: 400px;
+      border-radius: 20px;
+      box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.05);
+      display: flex;
+      justify-content: center;
+      margin: 0 auto;
+      margin-top: 50px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container input {
+      margin-bottom: 25px;
+    }
+
+    #textBox {
+      text-align: center;
+      font-size: 2em;
+      height: 50px;
+      width: 50%;
+      border-radius: 10px;
+
+    }
+
+    #submitBtn {
+      font-size: 2em;
+      background-color: #66ffff;
+      cursor: pointer;
+      border: none;
+      border-radius: 10px;
+      transition: 0.3s ease all;
+      padding: 10px 15px;
+      margin-bottom: 25px;
+
+    }
+
+    #submitBtn:hover {
+      background-color: #99ffff;
+    }
+
+    #resultText {
+      font-weight: 700;
+      margin: 0;
+      font-size: 36px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main">
+    <div class="container">
+      <h1>Temperature conversion:</h1>
+      <input id="textBox" type="number" value="">
+      <div><input id="celsiusToFahrenheit" type="radio" name="temp">
+        <label for="celsiusToFahrenheit">Celsius to Fahrenheit</label>
+      </div>
+      <div>
+        <input id="fahrenheitToCelsius" type="radio" name="temp">
+        <label for="fahrenheitToCelsius">Fahrenheit to Celsius</label>
+      </div>
+      <button id="submitBtn">Submit</button>
+      <p id="resultText"></p>
+    </div>
+  </div>
+
+  <script>
+
+    let temp;
+
+    let celsiusToFahrenheit = document.getElementById("celsiusToFahrenheit");
+    let fahrenheitToCelsius = document.getElementById("fahrenheitToCelsius");
+
+    let resultText = document.getElementById("resultText");
+    let textBox = document.getElementById("textBox");
+    let submitBtn = document.getElementById("submitBtn");
+
+    submitBtn.onclick = function () {
+
+      if (celsiusToFahrenheit.checked) {
+
+        temp = Number(textBox.value);
+        temp = Math.round(temp * 9 / 5 + 32);
+        resultText.textContent = `${temp} °F`;
+      }
+      else if (fahrenheitToCelsius.checked) {
+        temp = Number(textBox.value);
+        temp = (temp - 32) * 5 / 9;
+        resultText.textContent = `${temp} °C`;
+      }
+
+      else {
+        resultText.textContent = "Select a unit";
+      }
+
+
+
+
+
+
+    }
+
+  </script>
+</body>
+
+</html>
